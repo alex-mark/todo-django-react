@@ -126,5 +126,7 @@ STATIC_URL = '/static/'
 
 # fronend will be served on localhost:3000 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000/'
+    'http://localhost:3000',
+    'http://localhost:8000',
+
 )
