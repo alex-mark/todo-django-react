@@ -18,3 +18,11 @@
         - "8000:8000"
       depends_on:
         - postgres
+    frontend:
+      build: ./frontend
+      command: yarn start
+      volumes:
+        - ./frontend:/app
+        - /app/node_modules
+      ports:
+        - "3000:3000"
