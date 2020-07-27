@@ -25,7 +25,7 @@ SECRET_KEY = '(ewqh-6js+y2iyf7k@x5o^a=nf-z@q(ay1513kk25-gmu$ho2o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -77,10 +77,21 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'postgres',
+        'PORT': 5432,
     }
 }
 
@@ -123,10 +134,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# CORS_ORIGIN_ALLOW_ALL = True
 
 # fronend will be served on localhost:3000 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://localhost:8000',
-
+    'http://0.0.0.0:3000',
+    'http://0.0.0.0:8000',
 )
